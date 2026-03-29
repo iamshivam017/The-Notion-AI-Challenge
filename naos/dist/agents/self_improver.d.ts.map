@@ -1,0 +1,1 @@
+{"version":3,"file":"self_improver.d.ts","sourceRoot":"","sources":["../../src/agents/self_improver.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,gBAAgB,CAAC;AAChD,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,oBAAoB,CAAC;AA6BzD,qBAAa,iBAAiB;IACtB,OAAO,CACX,KAAK,EAAE,SAAS,EAAE,EAClB,OAAO,EAAE,oBAAoB,CAAC,IAAI,CAAC,EAAE,EACrC,OAAO,EAAE,cAAc,GACtB,OAAO,CAAC,MAAM,EAAE,CAAC;CAgGrB"}

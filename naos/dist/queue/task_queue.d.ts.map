@@ -1,0 +1,1 @@
+{"version":3,"file":"task_queue.d.ts","sourceRoot":"","sources":["../../src/queue/task_queue.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,wBAAwB,CAAC;AAiBxD,wBAAgB,WAAW,CAAC,IAAI,EAAE,SAAS,GAAG,IAAI,CAOjD;AAED,wBAAgB,WAAW,IAAI,SAAS,GAAG,IAAI,CAG9C;AAED,wBAAgB,SAAS,IAAI,SAAS,EAAE,CAEvC;AAED,wBAAgB,cAAc,IAAI,IAAI,CAErC;AAED,wBAAgB,eAAe,IAAI,MAAM,CAExC"}
