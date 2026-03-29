@@ -9,6 +9,7 @@ import { enqueue } from './queue/event_queue';
 import { closeRedis } from './queue/event_queue';
 import { approve, reject } from './safety/human_gate';
 import { auditLog } from './safety/audit_log';
+import { approvalResponseStatus } from './http/approval_response';
 
 // ---------------------------------------------------------------------------
 // Core run loop
@@ -76,7 +77,7 @@ async function handleRequest(req: IncomingMessage, res: ServerResponse): Promise
     for await (const chunk of req) chunks.push(chunk as Buffer);
     const { taskId } = JSON.parse(Buffer.concat(chunks).toString());
     const ok = approve(taskId);
-    res.writeHead(ok ? 200 : 404, { 'Content-Type': 'application/json' });
+    res.writeHead(approvalResponseStatus(ok), { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ ok, taskId }));
     return;
   }
@@ -87,7 +88,7 @@ async function handleRequest(req: IncomingMessage, res: ServerResponse): Promise
     for await (const chunk of req) chunks.push(chunk as Buffer);
     const { taskId } = JSON.parse(Buffer.concat(chunks).toString());
     const ok = reject(taskId);
-    res.writeHead(ok ? 200 : 404, { 'Content-Type': 'application/json' });
+    res.writeHead(approvalResponseStatus(ok), { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ ok, taskId }));
     return;
   }
