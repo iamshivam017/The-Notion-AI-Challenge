@@ -55,6 +55,19 @@ export function createServer({ orchestrator, memory, eventBus, logger, rateLimit
 
   // --- REST API Routes ---
 
+  // Root health route for platforms that probe '/'
+  app.get('/', (req, res) => {
+    res.json({
+      service: 'NAOS API',
+      status: 'ok',
+      docs: '/api/status',
+    });
+  });
+
+  app.get('/health', (req, res) => {
+    res.status(200).send('ok');
+  });
+
   // System status
   app.get('/api/status', (req, res) => {
     res.json({

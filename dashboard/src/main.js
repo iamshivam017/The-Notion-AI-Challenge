@@ -7,8 +7,18 @@ import { renderMemoryExplorer } from './components/MemoryExplorer.js';
 import { renderTaskManager } from './components/TaskManager.js';
 import { renderEvolutionLog } from './components/EvolutionLog.js';
 
-// API base URL — always point directly to backend server
-export const API_BASE = `http://${window.location.hostname}:3000`;
+// Production: configure backend URLs via Vite env vars.
+// Local fallback keeps current dev workflow unchanged.
+const envApiBase = (import.meta.env.VITE_API_BASE || '').trim().replace(/\/+$/, '');
+const fallbackApiBase = `${window.location.protocol}//${window.location.hostname}:3000`;
+
+export const API_BASE = envApiBase || fallbackApiBase;
+
+const envWsBase = (import.meta.env.VITE_WS_BASE || '').trim().replace(/\/+$/, '');
+const derivedWsBase = API_BASE.replace(/^http/i, 'ws');
+const WS_URL = envWsBase
+  ? (envWsBase.endsWith('/ws') ? envWsBase : `${envWsBase}/ws`)
+  : `${derivedWsBase}/ws`;
 
 class NAOSDashboard {
   constructor() {
@@ -40,7 +50,7 @@ class NAOSDashboard {
 
   // --- WebSocket ---
   connectWebSocket() {
-    const wsUrl = `ws://${window.location.hostname}:3000/ws`;
+    const wsUrl = WS_URL;
 
     try {
       this.ws = new WebSocket(wsUrl);
