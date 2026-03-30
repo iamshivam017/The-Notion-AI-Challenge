@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NAOS — Notion Autonomous Operating System. A self-learning multi-agent system that integrates Notion and GitHub.">
+  <title>NAOS — Notion Autonomous Operating System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/index.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation -->
+    <nav id="main-nav" class="nav">
+      <div class="nav-brand">
+        <div class="nav-logo" id="nav-logo">
+          <div class="logo-core"></div>
+          <div class="logo-ring logo-ring-1"></div>
+          <div class="logo-ring logo-ring-2"></div>
+          <div class="logo-ring logo-ring-3"></div>
+        </div>
+        <div class="nav-title">
+          <span class="nav-title-main">NAOS</span>
+          <span class="nav-title-sub">Notion Autonomous OS</span>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="overview" id="tab-overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Overview
+        </button>
+        <button class="nav-tab" data-tab="agents" id="tab-agents">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          Agents
+        </button>
+        <button class="nav-tab" data-tab="memory" id="tab-memory">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Memory
+        </button>
+        <button class="nav-tab" data-tab="tasks" id="tab-tasks">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          Tasks
+        </button>
+        <button class="nav-tab" data-tab="evolution" id="tab-evolution">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Evolution
+        </button>
+      </div>
+      <div class="nav-status" id="system-status-badge">
+        <div class="status-dot" id="status-dot"></div>
+        <span id="status-text">Initializing</span>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main">
+      <!-- Overview Tab -->
+      <section id="panel-overview" class="panel active">
+        <div id="system-overview"></div>
+      </section>
+
+      <!-- Agents Tab -->
+      <section id="panel-agents" class="panel">
+        <div id="agent-monitor"></div>
+      </section>
+
+      <!-- Memory Tab -->
+      <section id="panel-memory" class="panel">
+        <div id="memory-explorer"></div>
+      </section>
+
+      <!-- Tasks Tab -->
+      <section id="panel-tasks" class="panel">
+        <div id="task-manager"></div>
+      </section>
+
+      <!-- Evolution Tab -->
+      <section id="panel-evolution" class="panel">
+        <div id="evolution-log"></div>
+      </section>
+    </main>
+
+    <!-- Live Event Stream -->
+    <aside id="event-stream" class="event-stream">
+      <div class="event-stream-header">
+        <h3>Live Events</h3>
+        <button class="event-stream-toggle" id="toggle-stream">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="event-stream-content" id="event-list"></div>
+    </aside>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
